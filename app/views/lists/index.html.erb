@@ -1,0 +1,7 @@
+<h1>My Lists</h1>
+
+<ol>
+  <% @lists.each do |list| %>
+    <li><%= link_to list.title, list %></li>
+  <% end %>
+</ol>
