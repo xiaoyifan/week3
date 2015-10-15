@@ -1,9 +1,22 @@
 <h1><%= image_tag 'list.png', size: '100x100' %> <%= @list.title %></h1>
 
 <script>
-  jQuery(document).ready(function() { 
+  jQuery(document).ready(function() {
     $("form").on("submit", function(e) {
-      alert("Howdy!");
+      e.preventDefault();
+      // 1. Make an asynchronous HTTP request (POST /items)
+      $.ajax({
+        url: "/items",
+        method: "POST",
+        dataType: 'html',
+        data: $("form").serialize(),
+        success: function(response) {
+          window.alert("Success!")
+          console.debug(response)
+        }
+      });
+      // 2. Update the DOM (add a new list item)
+      // 3. Clear the form field
     });
   })
 </script>
