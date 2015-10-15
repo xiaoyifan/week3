@@ -1,5 +1,14 @@
 <h1><%= image_tag 'list.png', size: '100x100' %> <%= @list.title %></h1>
 
+<script>
+  jQuery(document).ready(function() { 
+    $("form").on("submit", function(e) {
+      alert("Howdy!");
+    });
+  })
+</script>
+
+
 <div class="items">
   <%= form_tag '/items' do %>
     <%= hidden_field_tag :list_id, @list.id %>
