@@ -8,11 +8,15 @@
       $.ajax({
         url: "/items",
         method: "POST",
-        dataType: 'html',
+        dataType: 'JSON',
         data: $("form").serialize(),
         success: function(response) {
           window.alert("Success!")
           console.debug(response)
+        },
+        error: function(response) {
+          window.alert("Yikes!");
+          console.debug(response);
         }
       });
       // 2. Update the DOM (add a new list item)

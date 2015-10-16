@@ -3,7 +3,16 @@ class ItemsController < ApplicationController
   def create
     list = List.find(params[:list_id])
     item = list.items.create(content: params[:content])
-    redirect_to list_url(list.id)
+
+    respond_to do |format|
+      format.html do
+        redirect_to list_url(list.id)
+      end
+      format.json do
+        render json: item
+      end
+    end
+
   end
 
   def destroy
