@@ -7,7 +7,7 @@
   <% end %>
   <ul>
     <% @list.items.each do |item| %>
-      <li><%= item.content %> <%= link_to "(Delete)", item, method: :delete %></li>
+      <%= render 'items/item', i: item %>
     <% end %>
   </ul>
 </div>
