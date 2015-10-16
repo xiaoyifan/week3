@@ -11,16 +11,17 @@
         dataType: 'JSON',
         data: $("form").serialize(),
         success: function(response) {
-          window.alert("Success!")
           console.debug(response)
+          // 2. Update the DOM (add a new list item)
+          $("ul").append("<li>" + response.content + "</li>");
+          // 3. Clear the form field
+          $("#content").val("");
         },
         error: function(response) {
           window.alert("Yikes!");
           console.debug(response);
         }
       });
-      // 2. Update the DOM (add a new list item)
-      // 3. Clear the form field
     });
   })
 </script>
