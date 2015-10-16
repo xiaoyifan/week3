@@ -1,7 +1,7 @@
 <h1><%= image_tag 'list.png', size: '100x100' %> <%= @list.title %></h1>
 
 <div class="items">
-  <%= form_tag '/items' do %>
+  <%= form_tag '/items', remote: true do %>
     <%= hidden_field_tag :list_id, @list.id %>
     <%= text_field_tag :content, "", placeholder: "Add a new item..." %>
   <% end %>
